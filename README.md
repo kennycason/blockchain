@@ -1,7 +1,7 @@
 BlockChain - Kotlin
 ===
 
-A simple BlockChain implementation storing weight/date records.
+A simple BlockChain implementation storing weight/date records. Blog writeup: [here](http://kennycason.com/posts/2018-08-25-blockchain-kotlin.html).
 
 
 ## BlockChain Structure
