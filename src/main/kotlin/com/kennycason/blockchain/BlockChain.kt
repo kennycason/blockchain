@@ -2,7 +2,7 @@ package com.kennycason.blockchain
 
 import com.kennycason.blockchain.data.Record
 
-class BlockChain(private val chain: MutableList<Block> = mutableListOf()) {
+class BlockChain(val chain: MutableList<Block> = mutableListOf()) {
 
     init {
         if (chain.isEmpty()) {
@@ -15,8 +15,6 @@ class BlockChain(private val chain: MutableList<Block> = mutableListOf()) {
     fun last() = chain.last()
 
     fun get(i: Int) = chain[i]
-
-    fun getChain() = chain
 
     fun maybeReplace(newBlockChain: BlockChain) {
         if (newBlockChain.length() > length()) {
