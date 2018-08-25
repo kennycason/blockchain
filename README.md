@@ -25,7 +25,7 @@ curl -XGET localhost:8080
     "previous_hash" : "",
     "hash" : "aa1da948d68d2c93bfb5179b519b1b73f53a96784316dc54b6c0f8aa276cee56"
   } ]
-}%
+}
 ```
 
 ## Add Record to BlockChain
@@ -80,5 +80,5 @@ curl -XGET localhost:8080
     "previous_hash" : "7b2c06c64850a5aeb68cae164e0b16129b480e819aea0941e5f229ea8027901b",
     "hash" : "dc0dcdcd1be6a0c4e3f5c85e74e5cc8b958efeaadda238e70bd57899561d6764"
   } ]
-}%
+}
 ```
