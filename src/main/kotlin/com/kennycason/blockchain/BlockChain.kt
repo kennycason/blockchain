@@ -2,7 +2,7 @@ package com.kennycason.blockchain
 
 import com.kennycason.blockchain.data.Record
 
-class BlockChain(val chain: MutableList<Block> = mutableListOf()) {
+class BlockChain(private val chain: MutableList<Block> = mutableListOf()) {
 
     init {
         if (chain.isEmpty()) {
@@ -16,6 +16,8 @@ class BlockChain(val chain: MutableList<Block> = mutableListOf()) {
 
     fun get(i: Int) = chain[i]
 
+    fun getChain() = chain
+
     fun maybeReplace(newBlockChain: BlockChain) {
         if (newBlockChain.length() > length()) {
             chain.clear()
@@ -24,12 +26,17 @@ class BlockChain(val chain: MutableList<Block> = mutableListOf()) {
     }
 
     fun add(record: Record) {
+        // wrap our data in a Block
         val block = generate(last(), record)
+
+        // validate the new block we are about to add is consistent with the previous block
         if (!BlockChainValidator.isValid(block, last())) {
-            throw RuntimeException("Invalid Blocks!")
+            throw RuntimeException("Invalid Block!")
         }
+        // finally add the new block
         chain.add(block)
 
+        // for extra validation, re-validate the entire chain
         if (!BlockChainValidator.isValid(this)) {
             throw RuntimeException("Invalid BlockChain!")
         }
@@ -46,7 +53,7 @@ class BlockChain(val chain: MutableList<Block> = mutableListOf()) {
     private fun createGenesisBlock() {
         chain.add(Block(
                 index = 0,
-                timestamp = System.currentTimeMillis(),
+                timestamp = 0,
                 record = Record(weight = 0.0, date = 0L),
                 previousHash = ""
         ))

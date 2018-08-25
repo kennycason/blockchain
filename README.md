@@ -17,13 +17,13 @@ curl -XGET localhost:8080
 {
   "chain" : [ {
     "index" : 0,
-    "timestamp" : 1535188264437,
+    "timestamp" : 0,
     "record" : {
       "weight" : 0.0,
       "date" : 0
     },
     "previous_hash" : "",
-    "hash" : "aa1da948d68d2c93bfb5179b519b1b73f53a96784316dc54b6c0f8aa276cee56"
+    "hash" : "2ac9a6746aca543af8dff39894cfe8173afba21eb01c6fae33d52947222855ef"
   } ]
 }
 ```
@@ -45,40 +45,40 @@ curl -XGET localhost:8080
 {
   "chain" : [ {
     "index" : 0,
-    "timestamp" : 1535188264437,
+    "timestamp" : 0,
     "record" : {
       "weight" : 0.0,
       "date" : 0
     },
     "previous_hash" : "",
-    "hash" : "aa1da948d68d2c93bfb5179b519b1b73f53a96784316dc54b6c0f8aa276cee56"
+    "hash" : "2ac9a6746aca543af8dff39894cfe8173afba21eb01c6fae33d52947222855ef"
   }, {
     "index" : 1,
-    "timestamp" : 1535188334202,
+    "timestamp" : 1535232343698,
     "record" : {
       "weight" : 190.0,
       "date" : 1535015447
     },
-    "previous_hash" : "aa1da948d68d2c93bfb5179b519b1b73f53a96784316dc54b6c0f8aa276cee56",
-    "hash" : "0bd53309cf67603be74b846caa7b7411828a7f2f0411884e623ac57d244227e2"
+    "previous_hash" : "2ac9a6746aca543af8dff39894cfe8173afba21eb01c6fae33d52947222855ef",
+    "hash" : "ecd6d0758d83c595aef3c29ed9c76453537e2710f12ff960581d4fd775ff8ffd"
   }, {
     "index" : 2,
-    "timestamp" : 1535188334225,
+    "timestamp" : 1535232343723,
     "record" : {
       "weight" : 188.0,
       "date" : 1535101847
     },
-    "previous_hash" : "0bd53309cf67603be74b846caa7b7411828a7f2f0411884e623ac57d244227e2",
-    "hash" : "7b2c06c64850a5aeb68cae164e0b16129b480e819aea0941e5f229ea8027901b"
+    "previous_hash" : "ecd6d0758d83c595aef3c29ed9c76453537e2710f12ff960581d4fd775ff8ffd",
+    "hash" : "0ee658c050e185a807781173492052a391cd7f659873b11d8ba360b2cd05c6dc"
   }, {
     "index" : 3,
-    "timestamp" : 1535188334247,
+    "timestamp" : 1535232343746,
     "record" : {
       "weight" : 185.0,
       "date" : 1535188248
     },
-    "previous_hash" : "7b2c06c64850a5aeb68cae164e0b16129b480e819aea0941e5f229ea8027901b",
-    "hash" : "dc0dcdcd1be6a0c4e3f5c85e74e5cc8b958efeaadda238e70bd57899561d6764"
+    "previous_hash" : "0ee658c050e185a807781173492052a391cd7f659873b11d8ba360b2cd05c6dc",
+    "hash" : "3d29a963baa917af7367f28dc68fa030feacb28177cc69512ca97f0ac2ecae58"
   } ]
 }
 ```

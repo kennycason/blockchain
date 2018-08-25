@@ -8,5 +8,5 @@ object Sha256Hasher {
             block.index.toString() +
                     block.timestamp.toString() +
                     block.record.hashCode() +
-                    block.previousHash)
+                    block.previousHash)!!
 }
