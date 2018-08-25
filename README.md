@@ -3,6 +3,11 @@ BlockChain - Kotlin
 
 A simple BlockChain implementation storing weight/date records.
 
+
+## BlockChain Structure
+
+![BlockChain](https://github.com/kennycason/blockchain/blob/master/blockchain.png?raw=true)
+
 ## Start Server
 
 Run `BlockChainServer.kt` (Ktor + Jetty)
