@@ -1,6 +1,5 @@
 package com.kennycason.blockchain
 
-import com.kennycason.blockchain.data.Record
 import org.apache.commons.codec.digest.DigestUtils
 
 class BlockChain(private val chain: MutableList<Block> = mutableListOf()) {

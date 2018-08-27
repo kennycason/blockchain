@@ -3,7 +3,6 @@ package com.kennycason.blockchain
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy
 import com.fasterxml.jackson.databind.SerializationFeature
-import com.kennycason.blockchain.data.Record
 import io.ktor.routing.*
 import io.ktor.application.*
 import io.ktor.features.CallLogging
