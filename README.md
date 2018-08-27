@@ -292,3 +292,7 @@ This implementation does not handle any networking or conflict resolution that a
 This post is only to show how transactions are started in blockchain technologies.
 
 In my next post I will develop a simple decentralized blockchain that computes integer factorization and generated blocks.
+
+## Thanks 
+
+I accidentally stumpled upon this post with a Golang implementation. I found it very well written and helpful. You can find it [here](https://medium.com/@mycoralhealth/code-your-own-blockchain-in-less-than-200-lines-of-go-e296282bcffc)
