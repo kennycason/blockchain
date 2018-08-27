@@ -1,7 +1,7 @@
 Simple BlockChain - Kotlin
 ===
 
-The goal if this post is to build a very simple blockchain for maintaining a transaction history of some chunk of data.
+The goal if this project is to build a very simple blockchain for maintaining a transaction history of some chunk of data.
 
 In this project we will create a small service to:
 - View all blocks in our blockchain
