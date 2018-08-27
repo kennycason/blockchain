@@ -1,6 +1,7 @@
 package com.kennycason.blockchain
 
 import com.kennycason.blockchain.data.Record
+import org.apache.commons.codec.digest.DigestUtils
 
 class BlockChain(private val chain: MutableList<Block> = mutableListOf()) {
 
@@ -30,17 +31,49 @@ class BlockChain(private val chain: MutableList<Block> = mutableListOf()) {
         val block = generate(last(), record)
 
         // validate the new block we are about to add is consistent with the previous block
-        if (!BlockChainValidator.isValid(block, last())) {
+        if (!isValid(block, last())) {
             throw RuntimeException("Invalid Block!")
         }
         // finally add the new block
         chain.add(block)
 
         // for extra validation, re-validate the entire chain
-        if (!BlockChainValidator.isValid(this)) {
+        if (!isValid()) {
             throw RuntimeException("Invalid BlockChain!")
         }
     }
+
+    private fun hash(block: Block) = DigestUtils.sha256Hex(
+            block.index.toString() +
+                    block.timestamp.toString() +
+                    block.record.hashCode() +
+                    block.previousHash)!!
+
+    private fun isValid(): Boolean {
+        // a blockchain only containing the genesis block is valid by definition
+        if (length() == 1) { return true }
+
+        // assert full history is valid
+        for (i in (0 until length() - 1)) {
+            if (!isValid(get(i + 1), get(i))) {
+                return false
+            }
+        }
+        return true
+    }
+
+    private fun isValid(newBlock: Block, oldBlock: Block): Boolean {
+        // assert indices are sequential
+        if (oldBlock.index + 1 != newBlock.index) { return false }
+        // assert hashes are linked correctly
+        if (oldBlock.hash != newBlock.previousHash) { return false }
+        // assert the hashes themselves are correct.
+        // this check is important to ensure our data within the block wasn't altered
+        if (hash(newBlock) != newBlock.hash) { return false }
+
+        return true
+    }
+
 
     private fun generate(block: Block, record: Record): Block {
         return Block(
@@ -57,10 +90,6 @@ class BlockChain(private val chain: MutableList<Block> = mutableListOf()) {
                 record = Record(weight = 0.0, date = 0L),
                 previousHash = ""
         ))
-    }
-
-    override fun toString(): String {
-        return "BlockChain(chain=${chain.joinToString(",\n")})"
     }
 
 }

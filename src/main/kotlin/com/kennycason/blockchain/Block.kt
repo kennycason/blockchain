@@ -1,7 +1,7 @@
 package com.kennycason.blockchain
 
 import com.kennycason.blockchain.data.Record
-import com.kennycason.blockchain.hash.Sha256Hasher
+import org.apache.commons.codec.digest.DigestUtils
 
 class Block(
         val index: Int,
@@ -9,10 +9,14 @@ class Block(
         val record: Record,
         val previousHash: String) {
 
-    val hash: String = Sha256Hasher.hash(this)
+    val hash: String = hash(this)
 
-    override fun toString(): String {
-        return "Block(index=$index, timestamp=$timestamp, record=$record, previousHash='$previousHash', hash='$hash')"
+    companion object {
+        private fun hash(block: Block) = DigestUtils.sha256Hex(
+                block.index.toString() +
+                        block.timestamp.toString() +
+                        block.record.hashCode() +
+                        block.previousHash)!!
     }
 
 }

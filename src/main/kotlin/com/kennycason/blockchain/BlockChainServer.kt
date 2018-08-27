@@ -32,14 +32,12 @@ class BlockChainViewServer {
             }
             routing {
                 get("/") {
-                    println(blockChain)
                     call.respond(blockChain)
                 }
                 post("/") {
                     val record = call.receive<Record>()
                     blockChain.add(record)
 
-                    println(blockChain)
                     call.respond(blockChain)
                 }
             }
