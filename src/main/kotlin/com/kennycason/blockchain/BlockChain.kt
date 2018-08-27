@@ -2,13 +2,7 @@ package com.kennycason.blockchain
 
 import org.apache.commons.codec.digest.DigestUtils
 
-class BlockChain(private val chain: MutableList<Block> = mutableListOf()) {
-
-    init {
-        if (chain.isEmpty()) {
-            createGenesisBlock()
-        }
-    }
+class BlockChain(private val chain: MutableList<Block> = initializeWithGenesisBlock()) {
 
     fun length() = chain.size
 
@@ -82,13 +76,14 @@ class BlockChain(private val chain: MutableList<Block> = mutableListOf()) {
                 previousHash = block.hash)
     }
 
-    private fun createGenesisBlock() {
-        chain.add(Block(
-                index = 0,
-                timestamp = 0,
-                record = Record(weight = 0.0, date = 0L),
-                previousHash = ""
-        ))
+    companion object {
+        private fun initializeWithGenesisBlock() =
+                mutableListOf(Block(
+                        index = 0,
+                        timestamp = 0,
+                        record = Record(weight = 0.0, date = 0L),
+                        previousHash = ""
+                ))
     }
 
 }
