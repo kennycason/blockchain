@@ -295,4 +295,4 @@ In my next post I will develop a simple decentralized blockchain that computes i
 
 ## Thanks 
 
-I accidentally stumpled upon this post with a Golang implementation. I found it very well written and helpful. You can find it [here](https://medium.com/@mycoralhealth/code-your-own-blockchain-in-less-than-200-lines-of-go-e296282bcffc)
+I stumpled upon [THIS](https://medium.com/@mycoralhealth/code-your-own-blockchain-in-less-than-200-lines-of-go-e296282bcffc post with a Golang implementation. I found it very well written and helpful. 
